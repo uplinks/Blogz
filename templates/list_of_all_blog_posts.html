@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All the blog entries</h1>
+    
+
+
+    {% if blogs|length == 0 %}
+    <p>No blog entries yet</p>
+    {% else %}
+
+        <ul>
+            {% for blog in blogs %}
+            <li>
+                
+                <a href="/blog?id={{ blog.id }}">{{ blog.title }}</a>
+                <br>
+                {{ blog.body }}
+                <br>
+                <p>Written by <a href="/blog?user_you_want={{ blog.owner.id }}">{{ blog.owner.username }}</a></p>
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+
+{% endblock %}
+<!-- 
+    alternate approach:
+{% if content_list|length == 0 %}
+<p>No blog entries yet</p>
+{% else %}
+    <ul>
+        {% for content in content_list %}
+        <li>
+            
+            <a href="/blog?id={{ content.blog.id }}">{{ content.blog.title }}</a>
+            <br>
+            {{content.blog.body}}
+            <br>
+            <p>Written by <a href="/blog?user_you_want={{ content.owner.id }}">{{ content.owner.username }}</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+-->

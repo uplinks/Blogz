@@ -1,0 +1,31 @@
+% extends "base.html" %}
+
+{% block content %}
+<h1>Sign up here</h1>
+<style>
+    .error { color: red; }
+</style>
+<form action="/signup" method="post">
+    <table>
+        <tr>
+            <td><label for="username">Username</label></td>
+            <td>
+                <input name="username" type="text" placeholder="Must be 3-30 characters." value="{{ username }}">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+                <input name="password" type="password" placeholder="Must be 3-30 characters.">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="verify">Verify Password</label></td>
+            <td>
+                <input name="verify" type="password" placeholder="Type in password again.">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Sign up">
+</form>
+{% endblock %}

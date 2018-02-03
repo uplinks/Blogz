@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All the blog entries by {{ user.username }}</h1>
+    
+    {% if blogs|length == 0 %}
+    <p>Hmm .. {{ user.username }} seems to have writer's block. There are no blog entries.</p>
+    {% else %}
+
+        <ul>
+            {% for blog in blogs %}
+            
+            <li>
+                <ul>
+                    <h1>{{ blog.title }}</h1>
+                    <h3>{{ blog.body }}</h3>
+                </ul>
+                <br>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}
